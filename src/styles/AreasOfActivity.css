@@ -1,0 +1,555 @@
+.areas-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #1a1a1a;
+  color: #ffffff;
+  padding: 48px 32px;
+  font-family: 'Lato', 'Helvetica Neue', sans-serif;
+  overflow: visible;
+}
+
+.carousel-items.resetting {
+  transition: transform 0.4s ease;
+}
+
+.carousel-dot:focus-visible,
+.carousel-arrow:focus-visible,
+.action-button:focus-visible {
+  outline: 2px solid #f5a623;
+  outline-offset: 2px;
+}
+
+.areas-wrapper {
+  max-width: 1230px;
+  margin: 0 auto;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1.5fr 1.5fr;
+  gap: 20px;
+}
+
+.right-area {
+  display: grid;
+  grid-template-rows: auto auto auto;
+  row-gap: 16px;
+  width: 100%;
+  max-width: 1230px;
+  overflow: visible;
+  position: relative;
+}
+
+.area-heading {
+  font-size: 50px;
+  font-family: "Libre Baskerville", serif;
+  font-weight: 300;
+  color: #ffffff;
+  letter-spacing: 0.05em;
+  background: linear-gradient(180deg, #f5a623 100%, transparent 0%);
+  background-size: 77px 2px;
+  background-repeat: no-repeat;
+  background-position: left bottom;
+  margin-bottom: 16px;
+  padding-bottom: 5px;
+}
+
+.area-description {
+  font-size: 16px;
+  line-height: 1.6;
+  font-weight: 300;
+  opacity: 0.9;
+  max-width: 90%;
+  margin-bottom: 10px;
+}
+
+.carousel-container {
+  position: relative;
+  overflow: visible;
+  margin-top: 0;
+  margin-bottom: 24px;
+  touch-action: pan-y pinch-zoom;
+}
+
+.carousel-container.mobile-touch {
+  overflow: hidden;
+  touch-action: pan-x;
+}
+
+.carousel-items {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: transform 0.8s cubic-bezier(0.25, 0.1, 0.25, 1);
+  gap: 20px;
+  padding-top: 16px;
+  will-change: transform;
+}
+
+.carousel-items.dragging {
+  transition: none;
+}
+
+.carousel-items.mobile-scroll {
+  justify-content: flex-start;
+  gap: 15px;
+}
+
+.carousel-item {
+  display: flex;
+  justify-content: center;
+  align-items: start;
+  background-color: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  border-radius: 4px;
+  padding: 20px;
+  transition: all 0.4s ease;
+  width: 390px;
+  min-height: 260px;
+  flex-direction: column;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  flex-shrink: 0;
+}
+
+.carousel-item:hover {
+  background-color: rgba(255, 255, 255, 0.08);
+  transform: translateY(-5px);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+}
+
+.item-title {
+  font-size: 30px;
+  margin-bottom: 19.2px;
+  color: #ffffff;
+  font-weight: 400;
+  position: relative;
+  padding-bottom: 9.6px;
+  font-family: "Libre Baskerville", serif;
+  background: linear-gradient(180deg, #f5a623 100%, transparent 0%);
+  background-size: 30px 2px;
+  background-repeat: no-repeat;
+  background-position: left bottom;
+  padding-bottom: 5px;
+}
+
+.item-description {
+  flex-grow: 1;
+  margin-bottom: 24px;
+  font-size: 14.4px;
+  line-height: 1.6;
+  opacity: 0.8;
+  font-weight: 300;
+}
+
+.action-button {
+  background-color: transparent;
+  color: #f5a623;
+  border: 1px solid #f5a623;
+  width: 120px;
+  height: 37px;
+  border-radius: 2px;
+  font-weight: 400;
+  font-size: 13px;
+  letter-spacing: 1px;
+  cursor: pointer;
+  align-self: flex-start;
+  transition: all 0.3s ease;
+  position: relative;
+  z-index: 10;
+
+  a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    color: #f5a623;
+    width: 120px;
+    height: 35px;
+
+    &:hover {
+      color: #1a1a1a;
+    }
+  }
+}
+
+.action-button:hover {
+  background-color: #f5a623;
+  color: #000000;
+}
+
+.carousel-controls {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 32px;
+}
+
+.carousel-arrows {
+  display: flex;
+  gap: 16px;
+}
+
+.carousel-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: transparent;
+  border: none;
+  color: rgba(255, 255, 255, 0.4);
+  font-size: 30px;
+  padding: 0 8px;
+  cursor: pointer;
+  opacity: 0.5;
+  transition: color 0.3s ease, opacity 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: auto;
+  z-index: 10;
+  user-select: none;
+}
+
+.carousel-arrow:hover {
+  color: rgba(255, 255, 255, 0.8);
+  opacity: 1;
+  transform: translateY(-50%);
+}
+
+.carousel-arrow:first-of-type {
+  left: -30px;
+}
+
+.carousel-arrow:last-of-type {
+  right: -30px;
+}
+
+.carousel-dots {
+  display: flex;
+  gap: 8px;
+  overflow: hidden;
+  justify-content: center;
+}
+
+.carousel-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50px;
+  background-color: rgba(255, 255, 255, 0.2);
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  padding: 0;
+}
+
+.carousel-dot.active {
+  background-color: #f5a623;
+  width: 30px;
+}
+
+/* Responsividade para tablets (768px - 1024px) */
+@media (max-width: 1024px) and (min-width: 769px) {
+  .areas-section {
+    padding: 40px 20px;
+  }
+
+  .areas-wrapper {
+    grid-template-columns: 1fr;
+    gap: 30px;
+    max-width: 100%;
+  }
+
+  .area-heading {
+    font-size: 42px;
+    background-size: 65px 2px;
+  }
+
+  .area-description {
+    font-size: 15px;
+    max-width: 100%;
+  }
+
+  .carousel-container {
+    overflow: hidden;
+    touch-action: pan-x;
+  }
+
+  .carousel-items {
+    justify-content: flex-start;
+    gap: 15px;
+    cursor: grab;
+  }
+
+  .carousel-items.dragging {
+    cursor: grabbing;
+  }
+
+  .carousel-item {
+    width: 320px;
+    min-height: 240px;
+    padding: 18px;
+    user-select: none;
+  }
+
+  .item-title {
+    font-size: 26px;
+    margin-bottom: 16px;
+    background-size: 25px 2px;
+  }
+
+  .item-description {
+    font-size: 13px;
+    margin-bottom: 20px;
+  }
+
+  .action-button {
+    width: 110px;
+    height: 35px;
+    font-size: 12px;
+    pointer-events: auto;
+
+    a {
+      width: 110px;
+      height: 33px;
+    }
+  }
+
+  .carousel-arrow {
+    font-size: 25px;
+    display: none; /* Ocultar setas em tablet para privilegiar o touch */
+  }
+
+  .carousel-arrow:first-of-type {
+    left: -25px;
+  }
+
+  .carousel-arrow:last-of-type {
+    right: -25px;
+  }
+}
+
+/* Responsividade para mobile (até 768px) */
+@media (max-width: 768px) {
+  .areas-section {
+    padding: 30px 15px;
+  }
+
+  .areas-wrapper {
+    grid-template-columns: 1fr;
+    gap: 25px;
+  }
+
+  .area-heading {
+    font-size: 32px;
+    background-size: 55px 2px;
+    margin-bottom: 12px;
+  }
+
+  .area-description {
+    font-size: 14px;
+    max-width: 100%;
+    margin-bottom: 15px;
+  }
+
+  .carousel-container {
+    overflow: hidden;
+    margin-bottom: 20px;
+    touch-action: pan-x;
+  }
+
+  .carousel-items {
+    justify-content: flex-start;
+    gap: 15px;
+    padding-top: 10px;
+    cursor: grab;
+  }
+
+  .carousel-items.dragging {
+    cursor: grabbing;
+  }
+
+  .carousel-item {
+    width: 85%;
+    min-width: 85%;
+    min-height: 220px;
+    padding: 15px;
+    margin-right: 0;
+    user-select: none;
+  }
+
+  .item-title {
+    font-size: 22px;
+    margin-bottom: 12px;
+    background-size: 20px 2px;
+  }
+
+  .item-description {
+    font-size: 12px;
+    margin-bottom: 15px;
+    line-height: 1.5;
+  }
+
+  .action-button {
+    width: 100px;
+    height: 32px;
+    font-size: 11px;
+    pointer-events: auto;
+
+    a {
+      width: 100px;
+      height: 30px;
+    }
+  }
+
+  .carousel-arrow {
+    font-size: 20px;
+    padding: 0 6px;
+    display: none; /* Ocultar setas em mobile para privilegiar o touch */
+  }
+
+  .carousel-dots {
+    gap: 6px;
+    margin-top: 15px;
+    justify-content: center;
+  }
+
+  .carousel-dot {
+    width: 8px;
+    height: 8px;
+  }
+
+  .carousel-dot.active {
+    width: 25px;
+  }
+}
+
+/* Responsividade para mobile pequeno (até 480px) */
+@media (max-width: 480px) {
+  .areas-section {
+    padding: 25px 10px;
+  }
+
+  .area-heading {
+    font-size: 28px;
+    background-size: 45px 2px;
+  }
+
+  .area-description {
+    font-size: 13px;
+  }
+
+  .carousel-item {
+    min-height: 200px;
+    padding: 12px;
+    width: 90%;
+    min-width: 90%;
+  }
+
+  .item-title {
+    font-size: 20px;
+    margin-bottom: 10px;
+    background-size: 18px 2px;
+  }
+
+  .item-description {
+    font-size: 11px;
+    margin-bottom: 12px;
+  }
+
+  .action-button {
+    width: 90px;
+    height: 30px;
+    font-size: 10px;
+
+    a {
+      width: 90px;
+      height: 28px;
+    }
+  }
+
+  .carousel-arrow {
+    font-size: 18px;
+    display: none;
+  }
+
+  .carousel-arrow:first-of-type {
+    left: -15px;
+  }
+
+  .carousel-arrow:last-of-type {
+    right: -15px;
+  }
+}
+
+/* Responsividade para telas muito pequenas (até 360px) */
+@media (max-width: 360px) {
+  .areas-section {
+    padding: 20px 8px;
+  }
+
+  .area-heading {
+    font-size: 24px;
+    background-size: 40px 2px;
+  }
+
+  .area-description {
+    font-size: 12px;
+  }
+
+  .carousel-item {
+    min-height: 180px;
+    padding: 10px;
+    width: 95%;
+    min-width: 95%;
+  }
+
+  .item-title {
+    font-size: 18px;
+    margin-bottom: 8px;
+    background-size: 16px 2px;
+  }
+
+  .item-description {
+    font-size: 10px;
+    margin-bottom: 10px;
+  }
+
+  .action-button {
+    width: 80px;
+    height: 28px;
+    font-size: 9px;
+
+    a {
+      width: 80px;
+      height: 26px;
+    }
+  }
+
+  .carousel-arrow:first-of-type {
+    left: -10px;
+  }
+
+  .carousel-arrow:last-of-type {
+    right: -10px;
+  }
+}
+
+/* Melhoria para suporte a touch */
+@media (hover: none) and (pointer: coarse) {
+  .carousel-item:hover {
+    transform: none;
+    background-color: rgba(255, 255, 255, 0.05);
+    box-shadow: none;
+  }
+  
+  .carousel-items {
+    -webkit-overflow-scrolling: touch;
+  }
+}
+
+/* Prevenir seleção de texto durante o drag */
+.carousel-items.dragging,
+.carousel-items.dragging * {
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+}

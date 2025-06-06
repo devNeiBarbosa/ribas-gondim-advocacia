@@ -1,0 +1,243 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Roboto", sans-serif;
+  overflow-x: hidden;
+}
+
+.team {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.img-room-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .background-img-room {
+    display: flex;
+    position: absolute;
+    width: 1350px;
+    height: 180px;
+    background: linear-gradient(90deg,
+        rgba(26, 26, 26, 0.87) 23%,
+        rgba(26, 26, 26, 0.65) 68%,
+        rgba(255, 255, 255, 0) 100%);
+  }
+
+  .room {
+    display: flex;
+    position: relative;
+    z-index: -100;
+    margin-top: -170px;
+  }
+}
+
+.text-title {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  width: 1230px;
+
+  .tilte-info {
+    font-family: "Libre Baskerville", serif;
+    font-size: 54px;
+    font-weight: 400;
+    margin-bottom: 20px;
+    background: linear-gradient(180deg, #f5a623 100%, transparent 0%);
+    background-size: 77px 2px;
+    background-repeat: no-repeat;
+    background-position: left bottom;
+    padding-bottom: 3px;
+    color: #ffffff;
+    position: absolute;
+    margin-top: -100px;
+  }
+}
+
+.team-info {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #f5f7f8;
+  padding: 20px 0;
+
+  .team-text-info-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 1230px;
+  }
+
+  .text-info {
+    font-size: 18px;
+    font-weight: 300;
+  }
+}
+
+.team-people {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background-color: #f5f7f8;
+  padding: 20px 0;
+  gap: 20px;
+
+  .team-info-people {
+    display: flex;
+    justify-content: space-between;
+    align-items: start;
+    width: 1230px;
+    gap: 20px;
+  }
+}
+
+.info-left-people {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+
+  .coordenação-geral,
+  .coordenação-equipe {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 10px;
+
+    .h2 {
+      font-family: "Libre Baskerville", serif;
+      font-size: 30px;
+      font-weight: 400;
+      background: linear-gradient(180deg, #f5a623 100%, transparent 0%);
+      background-size: 37px 2px;
+      background-repeat: no-repeat;
+      background-position: left bottom;
+      padding-bottom: 3px;
+      width: 350px;
+    }
+
+    .p {
+      font-size: 18px;
+      font-weight: 300;
+    }
+  }
+}
+
+.info-mid-people {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .advogados {
+    display: flex;
+    flex-direction: column;
+    gap: 11px;
+
+    .h2 {
+      font-family: "Libre Baskerville", serif;
+      font-size: 30px;
+      font-weight: 400;
+      background: linear-gradient(180deg, #f5a623 100%, transparent 0%);
+      background-size: 37px 2px;
+      background-repeat: no-repeat;
+      background-position: left bottom;
+      padding-bottom: 3px;
+      width: 350px;
+    }
+
+    .p {
+      font-size: 18px;
+      font-weight: 300;
+
+      span {
+        font-size: 14px;
+        font-style: italic;
+      }
+    }
+  }
+}
+
+.info-right-people {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+
+  .consultor-empresarial,
+  .estagiario {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+    .h2 {
+      font-family: "Libre Baskerville", serif;
+      font-size: 30px;
+      font-weight: 400;
+      background: linear-gradient(180deg, #f5a623 100%, transparent 0%);
+      background-size: 37px 2px;
+      background-repeat: no-repeat;
+      background-position: left bottom;
+      padding-bottom: 3px;
+      width: 350px;
+    }
+
+    .p {
+      font-size: 18px;
+      font-weight: 300;
+
+      span {
+        font-size: 14px;
+        font-style: italic;
+      }
+    }
+  }
+}
+
+.button-agendamento {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #f5f7f8;
+  padding-bottom: 15px;
+
+  .agendamento {
+    width: 500px;
+    height: 40px;
+    margin-top: 20px;
+    border: none;
+    font-size: 16px;
+    font-weight: 400;
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: #f5a623;
+    color: #000000;
+          transition: all 0.3s ease;
+
+    &:hover {
+      background-color: #1a1a1a;
+      color: #f5a623;
+    }
+
+    a {
+      text-decoration: none;
+      color: #000000;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 500px;
+      height: 40px;
+
+      &:hover {
+        color: #f5a623;
+      }
+    }
+  }
+}

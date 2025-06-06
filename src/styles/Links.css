@@ -1,0 +1,355 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Roboto", sans-serif;
+  overflow-x: hidden;
+}
+
+.links {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #1a1a1a;
+  padding-bottom: 35px;
+}
+
+.title-links {
+  display: flex;
+  flex-direction: column;
+  width: 1230px;
+  padding-top: 30px;
+
+  .title {
+    font-family: "Libre Baskerville", serif;
+    font-size: 54px;
+    font-weight: 400;
+    margin-bottom: 20px;
+    background: linear-gradient(180deg, #f5a623 100%, transparent 0%);
+    background-size: 77px 2px;
+    background-repeat: no-repeat;
+    background-position: left bottom;
+    padding-bottom: 3px;
+    color: #ffffff;
+  }
+
+  .text {
+    color: #ffffff;
+    font-size: 18px;
+    font-weight: 300;
+    margin-bottom: 30px;
+  }
+}
+
+.links-list {
+  display: flex;
+  justify-content: flex-start;
+  align-items: start;
+  gap: 35px;
+    margin-top: -10px;
+}
+
+.list-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: start;
+  width: 420px;
+  list-style-type: none;
+
+  ul {
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: start;
+    gap: 8px;
+    border: 1px solid #f5a623;
+    border-radius: 5px;
+    padding: 20px;
+  }
+
+  h2 {
+    font-family: "Libre Baskerville", serif;
+    font-size: 28px;
+    font-weight: 400;
+    background: linear-gradient(180deg, #f5a623 100%, transparent 0%);
+    background-size: 24px 2px;
+    background-repeat: no-repeat;
+    background-position: left bottom;
+    padding-bottom: 3px;
+    color: #ffffff;
+  }
+
+  li {
+    text-decoration: none;
+    color: #f5a623;
+    font-size: 16px;
+    font-weight: 400;
+    padding-bottom: 3px;
+  }
+
+  a {
+    text-decoration: none;
+    color: #f5a623;
+
+    &:hover {
+      color: #ffffff;
+      transition: all 0.2s ease;
+    }
+  }
+}
+
+.list-one,
+.list-two {
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: start;
+  gap: 20px;
+  list-style-type: none;
+  margin-top: 10px;
+
+  li {
+    text-decoration: none;
+    color: #f5a623;
+    font-size: 15px;
+    font-weight: 400;
+    padding-bottom: 3px;
+  }
+
+  a {
+    text-decoration: none;
+    color: #f5a623;
+
+    &:hover {
+      color: #ffffff;
+      transition: all 0.2s ease;
+    }
+  }
+}
+
+.links-extras {
+  margin-top: 10px;
+  width: 100%;
+}
+
+.carousel-container-extras {
+  position: relative;
+  overflow: visible;
+  margin-bottom: 24px;
+}
+
+.carousel-item-extras {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  background-color: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  border: 1px solid #f5a623;
+  border-radius: 5px;
+  padding: 20px;
+  transition: all 0.4s ease;
+  width: 100%;
+  min-height: 180px;
+}
+
+.carousel-item-extras:hover {
+  background-color: rgba(255, 255, 255, 0.08);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.item-title-extras {
+  font-family: "Libre Baskerville", serif;
+  font-size: 28px;
+  font-weight: 400;
+  color: #ffffff;
+  margin-bottom: 5px;
+  background: linear-gradient(180deg, #f5a623 100%, transparent 0%);
+  background-size: 24px 2px;
+  background-repeat: no-repeat;
+  background-position: left bottom;
+  padding-bottom: 3px;
+}
+
+.item-description-extras {
+  flex-grow: 1;
+  margin-bottom: 7px;
+  font-size: 16px;
+  line-height: 1.6;
+  color: #ffffff;
+  font-weight: 400;
+}
+
+.action-button-extras {
+  background-color: transparent;
+  color: #f5a623;
+  border: 1px solid #f5a623;
+  width: 120px;
+  height: 37px;
+  border-radius: 2px;
+  font-weight: 400;
+  font-size: 13px;
+  letter-spacing: 1px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.action-button-extras:hover {
+  background-color: #f5a623;
+  color: #000000;
+}
+
+.carousel-arrow-extras {
+  position: absolute;
+  top: 77.5%;
+  transform: translateY(-50%);
+  background-color: transparent;
+  border: none;
+  color: rgba(255, 255, 255, 0.4);
+  font-size: 30px;
+  padding: 0 8px;
+  cursor: pointer;
+  opacity: 0.5;
+  transition: color 0.3s ease, opacity 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: auto;
+  z-index: 10;
+  user-select: none;
+}
+
+.carousel-arrow-extras:hover {
+  color: rgba(255, 255, 255, 0.8);
+  opacity: 1;
+}
+
+.carousel-arrow-extras:first-of-type {
+  left: 165px;
+}
+
+.carousel-arrow-extras:last-of-type {
+  right: 30px;
+}
+
+.carousel-dots-extras {
+  display: flex;
+  gap: 8px;
+  justify-content: center;
+  margin-top: -10px;
+  position: relative;
+}
+
+.carousel-dot-extras {
+  width: 10px;
+  height: 10px;
+  border-radius: 50px;
+  background-color: rgba(255, 255, 255, 0.2);
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  padding: 0;
+}
+
+.carousel-dot-extras.active {
+  background-color: #f5a623;
+  width: 30px;
+}
+
+.popup-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.popup-content {
+  width: 80vw;
+  height: 90vh;
+  background-color: #ffffff;
+  border-radius: 8px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+}
+
+.popup-close {
+  position: absolute;
+  top: 15px;
+  right: 20px;
+  background: none;
+  border: none;
+  font-size: 30px;
+  color: #666;
+  cursor: pointer;
+  z-index: 10;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  transition: all 0.3s ease;
+}
+
+.popup-close:hover {
+  background-color: #f5f5f5;
+  color: #333;
+}
+
+.popup-header {
+  padding: 30px 30px 20px 30px;
+  border-bottom: 2px solid #f5a623;
+  background-color: #ffffff;
+  flex-shrink: 0;
+}
+
+.popup-header h2 {
+  font-family: "Libre Baskerville", serif;
+  font-size: 28px;
+  font-weight: 400;
+  color: #333;
+  margin: 0;
+  padding-right: 60px;
+}
+
+.popup-body {
+  flex: 1;
+  padding: 30px;
+  overflow-y: auto;
+  line-height: 1.8;
+  font-size: 16px;
+  color: #333;
+}
+
+.popup-body::-webkit-scrollbar {
+  width: 8px;
+}
+
+.popup-body::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 4px;
+}
+
+.popup-body::-webkit-scrollbar-thumb {
+  background: #f5a623;
+  border-radius: 4px;
+}
+
+.popup-body::-webkit-scrollbar-thumb:hover {
+  background: #e0941f;
+}
+
+.popup-body p {
+  margin-bottom: 20px;
+  text-align: justify;
+}

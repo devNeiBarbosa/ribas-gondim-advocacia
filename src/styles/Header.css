@@ -1,0 +1,392 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Roboto", sans-serif;
+}
+
+.cabeçalho {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 71px;
+  z-index: 9999;
+  overflow: visible;
+  background: linear-gradient(180deg,
+      rgba(26, 26, 26, 0.8) 40%,
+      rgba(26, 26, 26, 0.55) 78%,
+      rgba(26, 26, 26, 0.2) 100%);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+}
+
+.header-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  max-width: 1230px;
+  padding: 0 20px;
+}
+
+.logomarca {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+  margin-top: -10px;
+  margin-left: -31px;
+  width: 290px;
+  height: 88px;
+  overflow: hidden;
+}
+
+.img {
+  cursor: pointer;
+  color: #ffffff;
+  width: 290px;
+  position: relative;
+  margin-top: 15px;
+  margin-left: -20px;
+}
+
+/* Menu Desktop */
+.desktop-menu {
+  display: flex;
+}
+
+.secoes ul {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  list-style-type: none;
+  gap: 30px;
+  margin-top: 10px;
+}
+
+.secoes ul li {
+  text-decoration: none;
+  color: #ffffff;
+  transition: all 0.3s ease;
+  font-weight: 500;
+  padding-bottom: 3px;
+  background: linear-gradient(180deg, #f5a623 100%, transparent 0%);
+  background-size: 0% 2px;
+  background-repeat: no-repeat;
+  background-position: left bottom;
+  transition: background-size 0.3s ease;
+  cursor: pointer;
+}
+
+.secoes ul li:hover {
+  background-size: 100% 2px;
+  color: #f5a623;
+}
+
+/* Hambúrguer Menu */
+.hamburger-menu {
+  display: none;
+  cursor: pointer;
+  padding: 10px;
+}
+
+.hamburger {
+  width: 25px;
+  height: 20px;
+  position: relative;
+  transform: rotate(0deg);
+  transition: 0.3s ease-in-out;
+}
+
+.hamburger span {
+  display: block;
+  position: absolute;
+  height: 3px;
+  width: 100%;
+  background: #ffffff;
+  border-radius: 2px;
+  opacity: 1;
+  left: 0;
+  transform: rotate(0deg);
+  transition: 0.25s ease-in-out;
+}
+
+.hamburger span:nth-child(1) {
+  top: 0px;
+}
+
+.hamburger span:nth-child(2) {
+  top: 8px;
+}
+
+.hamburger span:nth-child(3) {
+  top: 16px;
+}
+
+.hamburger.open span:nth-child(1) {
+  top: 8px;
+  transform: rotate(135deg);
+}
+
+.hamburger.open span:nth-child(2) {
+  opacity: 0;
+  left: -60px;
+}
+
+.hamburger.open span:nth-child(3) {
+  top: 8px;
+  transform: rotate(-135deg);
+}
+
+/* Menu Mobile */
+.mobile-menu {
+  display: none;
+  width: 100%;
+  background: rgba(26, 26, 26, 0.95);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease-in-out;
+}
+
+.mobile-menu.open {
+  max-height: 400px;
+}
+
+.mobile-menu ul {
+  list-style-type: none;
+  padding: 20px 0;
+  margin: 0;
+}
+
+.mobile-menu ul li {
+  color: #ffffff;
+  font-weight: 500;
+  padding: 15px 30px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.mobile-menu ul li:hover {
+  background-color: rgba(245, 166, 35, 0.1);
+  color: #f5a623;
+  padding-left: 40px;
+}
+
+.mobile-menu ul li:last-child {
+  border-bottom: none;
+}
+
+/* RESPONSIVIDADE */
+
+/* Tablets - 768px até 1024px */
+@media screen and (max-width: 1024px) {
+  .header-container {
+    max-width: 95%;
+    padding: 0 15px;
+  }
+  
+  .secoes ul {
+    gap: 20px;
+  }
+  
+  .secoes ul li {
+    font-size: 14px;
+  }
+  
+  .img {
+    width: 250px;
+    margin-left: -15px;
+  }
+}
+
+/* Tablets pequenos - 600px até 768px */
+@media screen and (max-width: 768px) {
+  .desktop-menu {
+    display: none;
+  }
+  
+  .hamburger-menu {
+    display: block;
+  }
+  
+  .mobile-menu {
+    display: block;
+  }
+  
+  .header-container {
+    padding: 0 20px;
+    justify-content: space-between;
+  }
+  
+  .logomarca {
+    flex: 1;
+    justify-content: center;
+    margin-top: -5px;
+    margin-left: 0;
+    width: auto;
+    height: auto;
+  }
+  
+  .img {
+    width: 220px;
+    margin-left: 0;
+    margin-top: 5px;
+  }
+  
+  .cabeçalho {
+    min-height: 65px;
+  }
+}
+
+/* Celulares - 480px até 600px */
+@media screen and (max-width: 600px) {
+  .header-container {
+    padding: 0 15px;
+  }
+  
+  .img {
+    width: 200px;
+    margin-top: 8px;
+  }
+  
+  .cabeçalho {
+    min-height: 60px;
+  }
+  
+  .mobile-menu ul li {
+    padding: 12px 25px;
+    font-size: 15px;
+  }
+  
+  .mobile-menu ul li:hover {
+    padding-left: 35px;
+  }
+}
+
+/* Celulares pequenos - até 480px */
+@media screen and (max-width: 480px) {
+  .header-container {
+    padding: 0 10px;
+  }
+  
+  .img {
+    width: 180px;
+    margin-top: 5px;
+  }
+  
+  .cabeçalho {
+    min-height: 45px;
+  }
+  
+  .hamburger {
+    width: 22px;
+    height: 18px;
+  }
+  
+  .hamburger span {
+    height: 2.5px;
+  }
+  
+  .hamburger span:nth-child(2) {
+    top: 7px;
+  }
+  
+  .hamburger span:nth-child(3) {
+    top: 14px;
+  }
+  
+  .hamburger.open span:nth-child(1) {
+    top: 7px;
+  }
+  
+  .hamburger.open span:nth-child(3) {
+    top: 7px;
+  }
+  
+  .mobile-menu ul li {
+    padding: 10px 20px;
+    font-size: 14px;
+  }
+  
+  .mobile-menu ul li:hover {
+    padding-left: 30px;
+  }
+}
+
+/* Celulares muito pequenos - até 320px */
+@media screen and (max-width: 320px) {
+  .header-container {
+    padding: 0 8px;
+  }
+  
+  .img {
+    width: 160px;
+    margin-top: 3px;
+  }
+  
+  .cabeçalho {
+    min-height: 60px;
+  }
+  
+  .mobile-menu ul li {
+    padding: 8px 15px;
+    font-size: 13px;
+  }
+  
+  .mobile-menu ul li:hover {
+    padding-left: 25px;
+  }
+}
+
+/* Telas grandes - acima de 1366px */
+@media screen and (min-width: 1366px) {
+  .header-container {
+    max-width: 1300px;
+  }
+  
+  .secoes ul {
+    gap: 35px;
+  }
+  
+  .secoes ul li {
+    font-size: 16px;
+  }
+  
+  .img {
+    width: 320px;
+    margin-left: -25px;
+  }
+}
+
+/* Telas muito grandes - acima de 1920px */
+@media screen and (min-width: 1920px) {
+  .header-container {
+    max-width: 1600px;
+    padding: 0 40px;
+  }
+  
+  .secoes ul {
+    gap: 45px;
+  }
+  
+  .secoes ul li {
+    font-size: 18px;
+  }
+  
+  .img {
+    width: 350px;
+    margin-left: -30px;
+  }
+  
+  .cabeçalho {
+    min-height: 80px;
+  }
+}

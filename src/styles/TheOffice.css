@@ -1,0 +1,220 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Roboto", sans-serif;
+}
+
+.the-office {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 50px;
+  background-color: #f5f7f8;
+  padding: 50px 0;
+  margin-top: -20px;
+  height: 471px;
+  overflow: hidden;
+
+  .escritorio-left {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 30px;
+    width: 900px;
+    padding: 0 20px;
+
+    .o-escritorio {
+      font-size: 50px;
+      font-family: "Libre Baskerville", serif;
+      font-weight: 300;
+      background: linear-gradient(180deg, #f5a623 100%, transparent 0%);
+      background-size: 77px 2px;
+      background-repeat: no-repeat;
+      background-position: left bottom;
+      padding-bottom: 3px;
+    }
+
+    .sobre-nos {
+      text-align: justify;
+      font-size: 18px;
+      font-weight: 300;
+      line-height: 1.6;
+    }
+  }
+
+  .experiencia-rigth {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #f5a623;
+    width: 280px;
+    height: 471px;
+    z-index: 1;
+
+    .experiencia {
+      font-family: "Libre Baskerville", serif;
+      font-weight: 400;
+      font-size: 120px;
+    }
+
+    .experiencia-text {
+      font-size: 18px;
+      font-weight: 300;
+      letter-spacing: 2px;
+      text-align: center;
+    }
+  }
+}
+
+/* Responsividade para tablets (768px - 1024px) */
+@media (max-width: 1024px) and (min-width: 769px) {
+  .the-office {
+    padding: 40px 0;
+    height: 400px;
+    gap: 30px;
+
+    .escritorio-left {
+      width: 60%;
+      gap: 25px;
+      padding: 0 30px;
+
+      .o-escritorio {
+        font-size: 42px;
+        background-size: 65px 2px;
+      }
+
+      .sobre-nos {
+        font-size: 16px;
+        line-height: 1.5;
+      }
+    }
+
+    .experiencia-rigth {
+      width: 220px;
+      height: 400px;
+
+      .experiencia {
+        font-size: 100px;
+      }
+
+      .experiencia-text {
+        font-size: 16px;
+        letter-spacing: 1.5px;
+      }
+    }
+  }
+}
+
+/* Responsividade para mobile (até 768px) */
+@media (max-width: 768px) {
+  .the-office {
+    flex-direction: column-reverse;
+    padding: 30px 0;
+    height: auto;
+    min-height: 500px;
+    gap: 0;
+
+    .escritorio-left {
+      width: 100%;
+      gap: 20px;
+      padding: 20px;
+      order: 2;
+
+      .o-escritorio {
+        font-size: 32px;
+        background-size: 55px 2px;
+        text-align: left;
+      }
+
+      .sobre-nos {
+        font-size: 15px;
+        line-height: 1.5;
+        text-align: justify;
+      }
+    }
+
+    .experiencia-rigth {
+      width: 100%;
+      height: 150px;
+      order: 1;
+
+      .experiencia {
+        font-size: 80px;
+      }
+
+      .experiencia-text {
+        font-size: 15px;
+        letter-spacing: 1px;
+      }
+    }
+  }
+}
+
+/* Responsividade para mobile pequeno (até 480px) */
+@media (max-width: 480px) {
+  .the-office {
+    padding: 20px 0;
+    min-height: 450px;
+
+    .escritorio-left {
+      padding: 15px;
+      gap: 15px;
+
+      .o-escritorio {
+        font-size: 28px;
+        background-size: 45px 2px;
+      }
+
+      .sobre-nos {
+        font-size: 14px;
+        line-height: 1.4;
+      }
+    }
+
+    .experiencia-rigth {
+      height: 130px;
+
+      .experiencia {
+        font-size: 70px;
+      }
+
+      .experiencia-text {
+        font-size: 14px;
+        letter-spacing: 0.5px;
+      }
+    }
+  }
+}
+
+/* Responsividade para telas muito pequenas (até 360px) */
+@media (max-width: 360px) {
+  .the-office {
+    .escritorio-left {
+      padding: 10px;
+
+      .o-escritorio {
+        font-size: 24px;
+        background-size: 40px 2px;
+      }
+
+      .sobre-nos {
+        font-size: 13px;
+      }
+    }
+
+    .experiencia-rigth {
+      height: 120px;
+
+      .experiencia {
+        font-size: 60px;
+      }
+
+      .experiencia-text {
+        font-size: 13px;
+      }
+    }
+  }
+}

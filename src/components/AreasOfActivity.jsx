@@ -45,23 +45,34 @@ const Areas = () => {
     }
   ];
 
+  // Estados para controle do carousel
   const [currentIndex, setCurrentIndex] = useState(0);
   const [visibleItems, setVisibleItems] = useState([]);
-  const [isMobile, setIsMobile] = useState(false);
-  const [isDragging, setIsDragging] = useState(false);
+  
+  // Estados para controle do touch (melhorados)
   const [touchStart, setTouchStart] = useState(null);
   const [touchEnd, setTouchEnd] = useState(null);
+  const [isDragging, setIsDragging] = useState(false);
   const [startX, setStartX] = useState(0);
+  const [translateX, setTranslateX] = useState(0);
+  
+  // Detectar se é dispositivo móvel (threshold ajustado)
+  const [isMobile, setIsMobile] = useState(false);
 
   const carouselRef = useRef(null);
   const itemsToShow = 3;
   const minSwipeDistance = 50;
 
+  // Detectar dispositivo móvel
   useEffect(() => {
-    const checkMobile = () => setIsMobile(window.innerWidth <= 1024);
-    checkMobile();
-    window.addEventListener('resize', checkMobile);
-    return () => window.removeEventListener('resize', checkMobile);
+    const checkIsMobile = () => {
+      setIsMobile(window.innerWidth <= 768);
+    };
+    
+    checkIsMobile();
+    window.addEventListener('resize', checkIsMobile);
+    
+    return () => window.removeEventListener('resize', checkIsMobile);
   }, []);
 
   useEffect(() => {
@@ -88,37 +99,58 @@ const Areas = () => {
   const handleNext = () => setCurrentIndex((prevIndex) => (prevIndex + 1) % areas.length);
   const handlePrev = () => setCurrentIndex((prevIndex) => (prevIndex - 1 + areas.length) % areas.length);
 
+  // Funções de Touch melhoradas
   const handleTouchStart = (e) => {
     if (!isMobile) return;
-    setTouchEnd(null);
-    setTouchStart(e.targetTouches[0].clientX);
-    setStartX(e.targetTouches[0].clientX);
+    
+    const touch = e.touches[0];
+    const touchX = touch.clientX;
+    
+    setTouchStart(touchX);
+    setStartX(touchX);
     setIsDragging(true);
+    setTouchEnd(null);
+    setTranslateX(0);
+    
     if (carouselRef.current) {
       carouselRef.current.classList.add('dragging');
     }
   };
 
   const handleTouchMove = (e) => {
-    if (!isMobile || !touchStart) return;
-    const currentTouch = e.targetTouches[0].clientX;
-    setTouchEnd(currentTouch);
-    const diff = currentTouch - startX;
+    if (!isMobile || !isDragging || touchStart === null) return;
+    
+    const touch = e.touches[0];
+    const touchX = touch.clientX;
+    
+    setTouchEnd(touchX);
+    
+    const diff = touchX - startX;
     const maxTranslate = 100;
     const limitedDiff = Math.max(-maxTranslate, Math.min(maxTranslate, diff));
+    
+    setTranslateX(limitedDiff);
+    
     if (carouselRef.current) {
       carouselRef.current.style.transform = `translateX(${limitedDiff}px)`;
     }
   };
 
   const handleTouchEnd = () => {
-    if (!isMobile || !touchStart || !touchEnd) {
+    if (!isMobile || touchStart === null || touchEnd === null) {
       resetDrag();
       return;
     }
+    
     const distance = touchStart - touchEnd;
-    if (distance > minSwipeDistance) handleNext();
-    else if (distance < -minSwipeDistance) handlePrev();
+    
+    // Considerar distância para determinar o swipe
+    if (distance > minSwipeDistance) {
+      handleNext();
+    } else if (distance < -minSwipeDistance) {
+      handlePrev();
+    }
+    
     resetDrag();
   };
 
@@ -127,10 +159,13 @@ const Areas = () => {
     setTouchStart(null);
     setTouchEnd(null);
     setStartX(0);
+    setTranslateX(0);
+    
     if (carouselRef.current) {
       carouselRef.current.classList.remove('dragging');
       carouselRef.current.classList.add('resetting');
       carouselRef.current.style.transform = '';
+      
       setTimeout(() => {
         if (carouselRef.current) {
           carouselRef.current.classList.remove('resetting');
@@ -142,6 +177,19 @@ const Areas = () => {
   const handleTouchStartCapture = (e) => {
     if (isMobile) {
       e.currentTarget.style.touchAction = 'pan-y pinch-zoom';
+    }
+  };
+
+  // Prevenir scroll vertical durante o drag horizontal
+  const handleTouchMoveCapture = (e) => {
+    if (isMobile && isDragging && touchStart !== null) {
+      const touch = e.touches[0];
+      const deltaX = Math.abs(touch.clientX - startX);
+      
+      // Se há movimento horizontal significativo, prevenir scroll
+      if (deltaX > 10) {
+        e.preventDefault();
+      }
     }
   };
 
@@ -158,7 +206,11 @@ const Areas = () => {
           Conheça, a seguir, as principais áreas em que podemos contribuir para o crescimento e a segurança jurídica do seu negócio.
         </p>
 
-        <div className={`carousel-container ${isMobile ? 'mobile-touch' : ''}`} onTouchStartCapture={handleTouchStartCapture}>
+        <div 
+          className={`carousel-container ${isMobile ? 'mobile-touch' : ''}`} 
+          onTouchStartCapture={handleTouchStartCapture}
+          onTouchMoveCapture={handleTouchMoveCapture}
+        >
           {!isMobile && (
             <>
               <button className="carousel-arrow" onClick={handlePrev}>&lt;</button>
@@ -172,7 +224,10 @@ const Areas = () => {
             onTouchStart={handleTouchStart}
             onTouchMove={handleTouchMove}
             onTouchEnd={handleTouchEnd}
-            style={{ cursor: isMobile ? (isDragging ? 'grabbing' : 'grab') : 'default' }}
+            style={{ 
+              cursor: isMobile ? (isDragging ? 'grabbing' : 'grab') : 'default',
+              transform: isDragging ? `translateX(${translateX}px)` : ''
+            }}
           >
             {visibleItems.map((area, index) => (
               <div key={`${currentIndex}-${index}`} className="carousel-item">

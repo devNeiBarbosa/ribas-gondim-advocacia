@@ -19,26 +19,26 @@
   flex-direction: column;
   width: 1230px;
   padding-top: 30px;
+}
 
-  .title {
-    font-family: "Libre Baskerville", serif;
-    font-size: 54px;
-    font-weight: 400;
-    margin-bottom: 20px;
-    background: linear-gradient(180deg, #f5a623 100%, transparent 0%);
-    background-size: 77px 2px;
-    background-repeat: no-repeat;
-    background-position: left bottom;
-    padding-bottom: 3px;
-    color: #ffffff;
-  }
+.title-links .title {
+  font-family: "Libre Baskerville", serif;
+  font-size: 54px;
+  font-weight: 400;
+  margin-bottom: 20px;
+  background: linear-gradient(180deg, #f5a623 100%, transparent 0%);
+  background-size: 77px 2px;
+  background-repeat: no-repeat;
+  background-position: left bottom;
+  padding-bottom: 3px;
+  color: #ffffff;
+}
 
-  .text {
-    color: #ffffff;
-    font-size: 18px;
-    font-weight: 300;
-    margin-bottom: 30px;
-  }
+.title-links .text {
+  color: #ffffff;
+  font-size: 18px;
+  font-weight: 300;
+  margin-bottom: 30px;
 }
 
 .links-list {
@@ -46,7 +46,7 @@
   justify-content: flex-start;
   align-items: start;
   gap: 35px;
-    margin-top: -10px;
+  margin-top: -10px;
 }
 
 .list-info {
@@ -56,47 +56,47 @@
   align-items: start;
   width: 420px;
   list-style-type: none;
+}
 
-  ul {
-    display: flex;
-    flex-direction: column;
-    justify-content: start;
-    align-items: start;
-    gap: 8px;
-    border: 1px solid #f5a623;
-    border-radius: 5px;
-    padding: 20px;
-  }
+.list-info ul {
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: start;
+  gap: 8px;
+  border: 1px solid #f5a623;
+  border-radius: 5px;
+  padding: 20px;
+}
 
-  h2 {
-    font-family: "Libre Baskerville", serif;
-    font-size: 28px;
-    font-weight: 400;
-    background: linear-gradient(180deg, #f5a623 100%, transparent 0%);
-    background-size: 24px 2px;
-    background-repeat: no-repeat;
-    background-position: left bottom;
-    padding-bottom: 3px;
-    color: #ffffff;
-  }
+.list-info h2 {
+  font-family: "Libre Baskerville", serif;
+  font-size: 28px;
+  font-weight: 400;
+  background: linear-gradient(180deg, #f5a623 100%, transparent 0%);
+  background-size: 24px 2px;
+  background-repeat: no-repeat;
+  background-position: left bottom;
+  padding-bottom: 3px;
+  color: #ffffff;
+}
 
-  li {
-    text-decoration: none;
-    color: #f5a623;
-    font-size: 16px;
-    font-weight: 400;
-    padding-bottom: 3px;
-  }
+.list-info li {
+  text-decoration: none;
+  color: #f5a623;
+  font-size: 16px;
+  font-weight: 400;
+  padding-bottom: 3px;
+}
 
-  a {
-    text-decoration: none;
-    color: #f5a623;
+.list-info a {
+  text-decoration: none;
+  color: #f5a623;
+}
 
-    &:hover {
-      color: #ffffff;
-      transition: all 0.2s ease;
-    }
-  }
+.list-info a:hover {
+  color: #ffffff;
+  transition: all 0.2s ease;
 }
 
 .list-one,
@@ -108,24 +108,27 @@
   gap: 20px;
   list-style-type: none;
   margin-top: 10px;
+}
 
-  li {
-    text-decoration: none;
-    color: #f5a623;
-    font-size: 15px;
-    font-weight: 400;
-    padding-bottom: 3px;
-  }
+.list-one li,
+.list-two li {
+  text-decoration: none;
+  color: #f5a623;
+  font-size: 15px;
+  font-weight: 400;
+  padding-bottom: 3px;
+}
 
-  a {
-    text-decoration: none;
-    color: #f5a623;
+.list-one a,
+.list-two a {
+  text-decoration: none;
+  color: #f5a623;
+}
 
-    &:hover {
-      color: #ffffff;
-      transition: all 0.2s ease;
-    }
-  }
+.list-one a:hover,
+.list-two a:hover {
+  color: #ffffff;
+  transition: all 0.2s ease;
 }
 
 .links-extras {
@@ -257,99 +260,81 @@
   width: 30px;
 }
 
-.popup-overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  background-color: rgba(0, 0, 0, 0.8);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 1000;
+@media (max-width: 1024px) {
+  .links {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 20px;
+  }
+
+  .title-links {
+    width: 100%;
+  }
+
+  .title-links .title {
+    font-size: 42px;
+    background-size: 60px 2px;
+  }
+
+  .title-links .text {
+    font-size: 16px;
+  }
+
+  .links-list {
+    flex-direction: column;
+    gap: 25px;
+  }
+
+  .list-info {
+    width: 100%;
+  }
+
+  .carousel-container-extras {
+    order: -1;
+    margin-bottom: 20px;
+  }
 }
 
-.popup-content {
-  width: 80vw;
-  height: 90vh;
-  background-color: #ffffff;
-  border-radius: 8px;
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  overflow: hidden;
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
-}
+@media (max-width: 768px) {
+  .title-links .title {
+    font-size: 32px;
+  }
 
-.popup-close {
-  position: absolute;
-  top: 15px;
-  right: 20px;
-  background: none;
-  border: none;
-  font-size: 30px;
-  color: #666;
-  cursor: pointer;
-  z-index: 10;
-  width: 40px;
-  height: 40px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 50%;
-  transition: all 0.3s ease;
-}
+  .list-info h2 {
+    font-size: 22px;
+    background-size: 20px 2px;
+  }
 
-.popup-close:hover {
-  background-color: #f5f5f5;
-  color: #333;
-}
+  .list-info ul {
+    padding: 15px;
+  }
 
-.popup-header {
-  padding: 30px 30px 20px 30px;
-  border-bottom: 2px solid #f5a623;
-  background-color: #ffffff;
-  flex-shrink: 0;
-}
+  .list-one li,
+  .list-two li {
+    font-size: 14px;
+  }
 
-.popup-header h2 {
-  font-family: "Libre Baskerville", serif;
-  font-size: 28px;
-  font-weight: 400;
-  color: #333;
-  margin: 0;
-  padding-right: 60px;
-}
+  .carousel-item-extras {
+    padding: 15px;
+    min-height: 160px;
+  }
 
-.popup-body {
-  flex: 1;
-  padding: 30px;
-  overflow-y: auto;
-  line-height: 1.8;
-  font-size: 16px;
-  color: #333;
-}
+  .item-title-extras {
+    font-size: 22px;
+    background-size: 18px 2px;
+  }
 
-.popup-body::-webkit-scrollbar {
-  width: 8px;
-}
+  .item-description-extras {
+    font-size: 14px;
+  }
 
-.popup-body::-webkit-scrollbar-track {
-  background: #f1f1f1;
-  border-radius: 4px;
-}
+  .action-button-extras {
+    width: 100px;
+    height: 32px;
+    font-size: 11px;
+  }
 
-.popup-body::-webkit-scrollbar-thumb {
-  background: #f5a623;
-  border-radius: 4px;
-}
-
-.popup-body::-webkit-scrollbar-thumb:hover {
-  background: #e0941f;
-}
-
-.popup-body p {
-  margin-bottom: 20px;
-  text-align: justify;
+  .carousel-arrow-extras {
+    display: none;
+  }
 }

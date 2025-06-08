@@ -219,7 +219,7 @@
     cursor: pointer;
     background-color: #f5a623;
     color: #000000;
-          transition: all 0.3s ease;
+    transition: all 0.3s ease;
 
     &:hover {
       background-color: #1a1a1a;
@@ -238,6 +238,283 @@
       &:hover {
         color: #f5a623;
       }
+    }
+  }
+}
+
+/* MEDIA QUERIES PARA RESPONSIVIDADE */
+
+/* Tablets - 769px a 1024px */
+@media (max-width: 1024px) and (min-width: 769px) {
+  .img-room-container {
+    .background-img-room {
+      width: 100%;
+      max-width: 1024px;
+      height: 150px;
+    }
+
+    .room {
+      width: 100%;
+      max-width: 1024px;
+      margin-top: -140px;
+    }
+  }
+
+  .text-title {
+    width: 90%;
+    max-width: 1024px;
+    padding: 0 20px;
+
+    .tilte-info {
+      font-size: 48px;
+      margin-top: -80px;
+    }
+  }
+
+  .team-info {
+    .team-text-info-container {
+      width: 90%;
+      max-width: 1024px;
+      padding: 0 20px;
+    }
+  }
+
+  .team-people {
+    .team-info-people {
+      width: 90%;
+      max-width: 1024px;
+      padding: 0 20px;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 40px;
+    }
+  }
+
+  .info-left-people,
+  .info-mid-people,
+  .info-right-people {
+    width: 100%;
+    align-items: flex-start;
+  }
+
+  .info-left-people .coordenação-geral .h2,
+  .info-left-people .coordenação-equipe .h2,
+  .info-mid-people .advogados .h2,
+  .info-right-people .consultor-empresarial .h2,
+  .info-right-people .estagiario .h2 {
+    width: 100%;
+    max-width: 350px;
+  }
+
+  .button-agendamento {
+    .agendamento {
+      width: 90%;
+      max-width: 500px;
+    }
+
+    .agendamento a {
+      width: 100%;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .img-room-container {
+    .background-img-room {
+      width: 100%;
+      height: 160px; /* Ajustado proporcionalmente (100px * 1.6 = 160px) */
+    }
+
+    .room {
+      width: 100%;
+      margin-top: -32px; /* Ajustado proporcionalmente (-20px * 1.6 = -32px) */
+    }
+  }
+
+  .text-title {
+    width: 95%;
+    padding: 0 15px;
+    justify-content: flex-start;
+
+    .tilte-info {
+      font-size: 36px;
+      margin-top: -60px;
+      text-align: left;
+    }
+  }
+
+  .team-info {
+    .team-text-info-container {
+      width: 95%;
+      padding: 0 15px;
+      justify-content: flex-start;
+    }
+
+    .text-info {
+      font-size: 16px;
+      text-align: left;
+    }
+  }
+
+  .team-people {
+    .team-info-people {
+      width: 95%;
+      padding: 0 15px;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 30px;
+    }
+  }
+
+  .info-left-people,
+  .info-mid-people,
+  .info-right-people {
+    width: 100%;
+    align-items: flex-start;
+    gap: 25px;
+  }
+
+  .info-left-people .coordenação-geral,
+  .info-left-people .coordenação-equipe,
+  .info-mid-people .advogados,
+  .info-right-people .consultor-empresarial,
+  .info-right-people .estagiario {
+    width: 100%;
+  }
+
+  .info-left-people .coordenação-geral .h2,
+  .info-left-people .coordenação-equipe .h2,
+  .info-mid-people .advogados .h2,
+  .info-right-people .consultor-empresarial .h2,
+  .info-right-people .estagiario .h2 {
+    font-size: 26px;
+    width: 100%;
+  }
+
+  .info-left-people .coordenação-geral .p,
+  .info-left-people .coordenação-equipe .p,
+  .info-mid-people .advogados .p,
+  .info-right-people .consultor-empresarial .p,
+  .info-right-people .estagiario .p {
+    font-size: 16px;
+  }
+
+  .button-agendamento {
+    .agendamento {
+      display: none;
+    }
+
+    .agendamento a {
+      width: 100%;
+    }
+  }
+}
+
+/* Celulares - até 480px */
+@media (max-width: 480px) {
+  .img-room-container {
+    .background-img-room {
+      width: 100%;
+      height: 100px;
+      margin-top: -10px;
+    }
+
+    .room {
+      width: 100%;
+      margin-top: -20px;
+    }
+  }
+
+  .text-title {
+    width: 100%;
+    padding: 0 10px;
+    justify-content: flex-start;
+
+    .tilte-info {
+      font-size: 28px;
+      margin-top: -40px;
+      text-align: left;
+      line-height: 1.2;
+    }
+  }
+
+  .team-info {
+    .team-text-info-container {
+      width: 100%;
+      padding: 0 10px;
+      justify-content: flex-start;
+    }
+
+    .text-info {
+      font-size: 14px;
+      text-align: left;
+      line-height: 1.4;
+    }
+  }
+
+  .team-people {
+    padding: 15px 0;
+
+    .team-info-people {
+      width: 100%;
+      padding: 0 10px;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 25px;
+    }
+  }
+
+  .info-left-people,
+  .info-mid-people,
+  .info-right-people {
+    width: 100%;
+    align-items: flex-start;
+    gap: 20px;
+  }
+
+  .info-left-people .coordenação-geral,
+  .info-left-people .coordenação-equipe,
+  .info-mid-people .advogados,
+  .info-right-people .consultor-empresarial,
+  .info-right-people .estagiario {
+    width: 100%;
+  }
+
+  .info-left-people .coordenação-geral .h2,
+  .info-left-people .coordenação-equipe .h2,
+  .info-mid-people .advogados .h2,
+  .info-right-people .consultor-empresarial .h2,
+  .info-right-people .estagiario .h2 {
+    font-size: 22px;
+    width: 100%;
+    line-height: 1.2;
+  }
+
+  .info-left-people .coordenação-geral .p,
+  .info-left-people .coordenação-equipe .p,
+  .info-mid-people .advogados .p,
+  .info-right-people .consultor-empresarial .p,
+  .info-right-people .estagiario .p {
+    font-size: 14px;
+    line-height: 1.4;
+  }
+
+  .info-left-people .coordenação-geral .p span,
+  .info-left-people .coordenação-equipe .p span,
+  .info-mid-people .advogados .p span,
+  .info-right-people .consultor-empresarial .p span,
+  .info-right-people .estagiario .p span {
+    font-size: 12px;
+  }
+
+  .button-agendamento {
+    .agendamento {
+      display: none;
+    }
+
+    .agendamento a {
+      width: 100%;
+      height: 45px;
     }
   }
 }

@@ -26,7 +26,7 @@ const TheOffice = () => {
         <p className="sobre-nos">
           O Escritório Ribas Gondim também oferece um espaço exclusivo para a realização de reuniões. A sala conta com 
           estrutura completa de multimídia, incluindo internet, TV de 42" para apresentações, 
-          cabeamento para áudio e vídeo (inclusive HDMI), além de serviço de recepção e atendimento personalizado..
+          cabeamento para áudio e vídeo (inclusive HDMI), além de serviço de recepção e atendimento personalizado.
         </p>
       </div>
 

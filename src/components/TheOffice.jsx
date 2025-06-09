@@ -3,7 +3,7 @@ import '../styles/TheOffice.css';
 
 const TheOffice = () => {
   return (
-    <section className="the-office">
+    <section className="the-office" id="o-escritorio">
       <div className="escritorio-left">
         <h2 className="o-escritorio">O Escritório</h2>
         <p className="sobre-nos">
@@ -21,6 +21,12 @@ const TheOffice = () => {
           melhor prestador de serviços jurídicos ao atender — e sempre que possível, superar — as expectativas de nossos clientes. 
           Buscamos constantemente a evolução, tanto no aspecto técnico quanto humano, porque entendemos que o verdadeiro
           diferencial está na forma como cuidamos das pessoas e de suas causas.
+        </p>
+
+        <p className="sobre-nos">
+          O Escritório Ribas Gondim também oferece um espaço exclusivo para a realização de reuniões. A sala conta com 
+          estrutura completa de multimídia, incluindo internet, TV de 42" para apresentações, 
+          cabeamento para áudio e vídeo (inclusive HDMI), além de serviço de recepção e atendimento personalizado..
         </p>
       </div>
 

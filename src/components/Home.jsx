@@ -90,7 +90,6 @@ const Home = () => {
         <p className="texto">
           Para acessar nossos serviços de Advocacia Digital Judicial e Extrajudicial, entre em contato conosco.
         </p>
-        <p id="o-escritorio"></p>
         <button
           className="agendamento"
           onClick={() => window.open(linkRG, '_blank', 'noopener,noreferrer')}

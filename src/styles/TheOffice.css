@@ -13,7 +13,7 @@
   background-color: #f5f7f8;
   padding: 50px 0;
   margin-top: -20px;
-  height: 471px;
+  height: 620px;
   overflow: hidden;
 
   .escritorio-left {
@@ -51,7 +51,7 @@
     align-items: center;
     background-color: #f5a623;
     width: 280px;
-    height: 471px;
+    height: 620px;
     z-index: 1;
 
     .experiencia {

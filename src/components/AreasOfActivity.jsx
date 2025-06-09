@@ -1,9 +1,9 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect } from "react";
 import '../styles/AreasOfActivity.css';
 
 const Areas = () => {
   const areas = [
-    {
+        {
       title: "Direito Civil",
       description: "Regula relações jurídicas entre pessoas, tratando de contratos, obrigações, direitos reais e responsabilidades civis.",
       buttonText: "SAIBA MAIS"
@@ -45,25 +45,15 @@ const Areas = () => {
     }
   ];
 
-  // Estados para controle do carousel
   const [currentIndex, setCurrentIndex] = useState(0);
   const [visibleItems, setVisibleItems] = useState([]);
-  
-  // Estados para controle do touch (melhorados)
-  const [touchStart, setTouchStart] = useState(null);
-  const [touchEnd, setTouchEnd] = useState(null);
   const [isDragging, setIsDragging] = useState(false);
   const [startX, setStartX] = useState(0);
   const [translateX, setTranslateX] = useState(0);
-  
-  // Detectar se é dispositivo móvel (threshold ajustado)
   const [isMobile, setIsMobile] = useState(false);
 
-  const carouselRef = useRef(null);
   const itemsToShow = 3;
-  const minSwipeDistance = 50;
 
-  // Detectar dispositivo móvel
   useEffect(() => {
     const checkIsMobile = () => {
       setIsMobile(window.innerWidth <= 768);
@@ -87,114 +77,104 @@ const Areas = () => {
 
     updateVisibleItems();
 
-    if (!isMobile && !isDragging) {
+    if (!isDragging) {
       const interval = setInterval(() => {
         setCurrentIndex((prevIndex) => (prevIndex + 1) % areas.length);
       }, 5000);
       return () => clearInterval(interval);
     }
-  }, [currentIndex, areas.length, isMobile, isDragging]);
+  }, [currentIndex, areas.length, isDragging]);
 
-  const handleDotClick = (index) => setCurrentIndex(index);
-  const handleNext = () => setCurrentIndex((prevIndex) => (prevIndex + 1) % areas.length);
-  const handlePrev = () => setCurrentIndex((prevIndex) => (prevIndex - 1 + areas.length) % areas.length);
-
-  // Funções de Touch melhoradas
-  const handleTouchStart = (e) => {
-    if (!isMobile) return;
-    
-    const touch = e.touches[0];
-    const touchX = touch.clientX;
-    
-    setTouchStart(touchX);
-    setStartX(touchX);
-    setIsDragging(true);
-    setTouchEnd(null);
-    setTranslateX(0);
-    
-    if (carouselRef.current) {
-      carouselRef.current.classList.add('dragging');
+  const handleDotClick = (index) => {
+    if (!isDragging) {
+      setCurrentIndex(index);
     }
+  };
+
+  const handleNext = () => {
+    if (!isDragging) {
+      setCurrentIndex((prevIndex) => (prevIndex + 1) % areas.length);
+    }
+  };
+
+  const handlePrev = () => {
+    if (!isDragging) {
+      setCurrentIndex((prevIndex) => (prevIndex - 1 + areas.length) % areas.length);
+    }
+  };
+
+  const handleStart = (clientX) => {
+    setIsDragging(true);
+    setStartX(clientX);
+    setTranslateX(0);
+  };
+
+  const handleMove = (clientX) => {
+    if (!isDragging) return;
+    const diff = clientX - startX;
+    const maxTranslate = 100;
+    const limitedDiff = Math.max(-maxTranslate, Math.min(maxTranslate, diff));
+    setTranslateX(limitedDiff);
+  };
+
+  const handleEnd = () => {
+    if (!isDragging) return;
+    
+    const threshold = 50;
+    
+    if (translateX > threshold) {
+      setCurrentIndex((prevIndex) => (prevIndex - 1 + areas.length) % areas.length);
+    } else if (translateX < -threshold) {
+      setCurrentIndex((prevIndex) => (prevIndex + 1) % areas.length);
+    }
+    
+    setIsDragging(false);
+    setTranslateX(0);
+  };
+
+  const handleTouchStart = (e) => {
+    handleStart(e.touches[0].clientX);
   };
 
   const handleTouchMove = (e) => {
-    if (!isMobile || !isDragging || touchStart === null) return;
-    
-    const touch = e.touches[0];
-    const touchX = touch.clientX;
-    
-    setTouchEnd(touchX);
-    
-    const diff = touchX - startX;
-    const maxTranslate = 100;
-    const limitedDiff = Math.max(-maxTranslate, Math.min(maxTranslate, diff));
-    
-    setTranslateX(limitedDiff);
-    
-    if (carouselRef.current) {
-      carouselRef.current.style.transform = `translateX(${limitedDiff}px)`;
-    }
+    e.preventDefault();
+    handleMove(e.touches[0].clientX);
   };
 
   const handleTouchEnd = () => {
-    if (!isMobile || touchStart === null || touchEnd === null) {
-      resetDrag();
-      return;
-    }
-    
-    const distance = touchStart - touchEnd;
-    
-    // Considerar distância para determinar o swipe
-    if (distance > minSwipeDistance) {
-      handleNext();
-    } else if (distance < -minSwipeDistance) {
-      handlePrev();
-    }
-    
-    resetDrag();
+    handleEnd();
   };
 
-  const resetDrag = () => {
-    setIsDragging(false);
-    setTouchStart(null);
-    setTouchEnd(null);
-    setStartX(0);
-    setTranslateX(0);
-    
-    if (carouselRef.current) {
-      carouselRef.current.classList.remove('dragging');
-      carouselRef.current.classList.add('resetting');
-      carouselRef.current.style.transform = '';
-      
-      setTimeout(() => {
-        if (carouselRef.current) {
-          carouselRef.current.classList.remove('resetting');
-        }
-      }, 400);
+  const handleMouseDown = (e) => {
+    handleStart(e.clientX);
+  };
+
+  const handleMouseMove = (e) => {
+    if (isDragging) {
+      e.preventDefault();
+      handleMove(e.clientX);
     }
   };
 
-  const handleTouchStartCapture = (e) => {
-    if (isMobile) {
-      e.currentTarget.style.touchAction = 'pan-y pinch-zoom';
-    }
+  const handleMouseUp = () => {
+    handleEnd();
   };
 
-  // Prevenir scroll vertical durante o drag horizontal
-  const handleTouchMoveCapture = (e) => {
-    if (isMobile && isDragging && touchStart !== null) {
-      const touch = e.touches[0];
-      const deltaX = Math.abs(touch.clientX - startX);
-      
-      // Se há movimento horizontal significativo, prevenir scroll
-      if (deltaX > 10) {
-        e.preventDefault();
-      }
+  const handleMouseLeave = () => {
+    if (isDragging) {
+      handleEnd();
     }
   };
 
   const messageRG = encodeURIComponent("Olá, tudo bem? Gostaria de agendar uma consultoria jurídica e entender como o Escritório Ribas Gondim Advocacia pode me auxiliar.");
   const linkRG = `https://wa.me/5571999536060?text=${messageRG}`;
+
+  const handleButtonClick = (e) => {
+    if (!isDragging) {
+      window.open(linkRG, '_blank', 'noopener,noreferrer');
+    }
+    e.stopPropagation();
+  };
 
   return (
     <section className="areas-section" id="areas-de-atuacao">
@@ -206,11 +186,7 @@ const Areas = () => {
           Conheça, a seguir, as principais áreas em que podemos contribuir para o crescimento e a segurança jurídica do seu negócio.
         </p>
 
-        <div 
-          className={`carousel-container ${isMobile ? 'mobile-touch' : ''}`} 
-          onTouchStartCapture={handleTouchStartCapture}
-          onTouchMoveCapture={handleTouchMoveCapture}
-        >
+        <div className="carousel-container">
           {!isMobile && (
             <>
               <button className="carousel-arrow" onClick={handlePrev}>&lt;</button>
@@ -219,14 +195,20 @@ const Areas = () => {
           )}
 
           <div
-            className={`carousel-items ${isDragging ? 'dragging' : ''} ${isMobile ? 'mobile-scroll' : ''}`}
-            ref={carouselRef}
+            className="carousel-items"
             onTouchStart={handleTouchStart}
             onTouchMove={handleTouchMove}
             onTouchEnd={handleTouchEnd}
-            style={{ 
-              cursor: isMobile ? (isDragging ? 'grabbing' : 'grab') : 'default',
-              transform: isDragging ? `translateX(${translateX}px)` : ''
+            onMouseDown={handleMouseDown}
+            onMouseMove={handleMouseMove}
+            onMouseUp={handleMouseUp}
+            onMouseLeave={handleMouseLeave}
+            style={{
+              cursor: isDragging ? 'grabbing' : 'grab',
+              transform: `translateX(${translateX}px)`,
+              transition: isDragging ? 'none' : 'transform 0.3s ease',
+              userSelect: 'none',
+              touchAction: 'pan-y'
             }}
           >
             {visibleItems.map((area, index) => (
@@ -235,8 +217,7 @@ const Areas = () => {
                 <p className="item-description">{area.description}</p>
                 <button
                   className="action-button"
-                  onClick={() => window.open(linkRG, '_blank', 'noopener,noreferrer')}
-                  onTouchStart={(e) => e.stopPropagation()}
+                  onClick={handleButtonClick}
                 >
                   {area.buttonText}
                 </button>

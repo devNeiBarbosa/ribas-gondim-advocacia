@@ -15,7 +15,7 @@ const Team = () => {
         </div>
 
         <div className="text-title">
-          <h2 className="tilte-info">Conheça nossa Equipe</h2>
+          <h2 className="title-info">Conheça nossa Equipe</h2>
         </div>
       </section>
 

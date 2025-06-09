@@ -43,7 +43,7 @@
   align-items: center;
   width: 1230px;
 
-  .tilte-info {
+  .title-info {
     font-family: "Libre Baskerville", serif;
     font-size: 54px;
     font-weight: 400;
@@ -265,7 +265,7 @@
     max-width: 1024px;
     padding: 0 20px;
 
-    .tilte-info {
+    .title-info {
       font-size: 48px;
       margin-top: -80px;
     }
@@ -336,7 +336,7 @@
     padding: 0 15px;
     justify-content: flex-start;
 
-    .tilte-info {
+    .title-info {
       font-size: 36px;
       margin-top: -60px;
       text-align: left;
@@ -430,11 +430,12 @@
     padding: 0 10px;
     justify-content: flex-start;
 
-    .tilte-info {
+    .title-info {
       font-size: 28px;
       margin-top: -40px;
       text-align: left;
       line-height: 1.2;
+      background-size: 40px 2px;
     }
   }
 

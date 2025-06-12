@@ -314,6 +314,10 @@
     font-size: 14px;
   }
 
+  .list-two {
+    margin-top: -10px;
+  }
+
   .carousel-item-extras {
     padding: 15px;
     min-height: 160px;

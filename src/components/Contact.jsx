@@ -125,7 +125,7 @@ const Contact = () => {
   const termsContent = `
 Última atualização: 08/06/2025
 
-Bem-vindo ao nosso site. Estes Termos de Uso estabelecem as condições gerais de utilização do site e dos serviços oferecidos pelo ESCRITÓRIO RIBAS GONDIM ADVOCACIA, inscrito no OAB/BA 35.627 com sede em Avenida Antônio Carlos Magalhães, 3213, Edifício Golden Plaza.
+Bem-vindo ao nosso site. Estes Termos de Uso estabelecem as condições gerais de utilização do site e dos serviços oferecidos pelo ESCRITÓRIO RIBAS GONDIM ADVOCACIA, com sede em Avenida Antônio Carlos Magalhães, 3213, Edifício Golden Plaza.
 
 1. ACEITAÇÃO DOS TERMOS
 Ao acessar e utilizar este site, você declara ter lido, compreendido e concordado com todos os termos e condições aqui estabelecidos. Se você não concorda com qualquer parte destes termos, deve interromper imediatamente o uso do site.

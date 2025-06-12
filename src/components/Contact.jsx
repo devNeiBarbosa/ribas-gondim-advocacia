@@ -262,7 +262,6 @@ Durante a prestação de serviços jurídicos, podemos processar diversos tipos 
 • Eliminação de dados processados com base em consentimento revogado
 • Informações sobre compartilhamento de dados com terceiros
 • Revogação do consentimento quando aplicável
-Para exercer seus direitos, entre em contato com nosso Encarregado através do e-mail: contato@ribasgondim.com.br
 
 5. FINALIDADES DO TRATAMENTO
 5.1 Relações Profissionais Internas:

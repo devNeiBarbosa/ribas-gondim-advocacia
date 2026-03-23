@@ -232,12 +232,11 @@ Estes Termos de Uso foram elaborados em conformidade com a legislação brasilei
   `;
 
   const policyContent = `
-POLÍTICA DE PRIVACIDADE DE DADOS PESSOAIS
+POLÍTICA DE PRIVACIDADE DE DADOS PESSOAIS — Solicitamos a leitura completa deste documento.
 
 RIBAS GONDIM ADVOCACIA
 1. INTRODUÇÃO E COMPROMISSO COM A PRIVACIDADE
 O Escritório Ribas Gondim Advocacia reconhece a importância fundamental da proteção de dados pessoais e demonstra seu compromisso integral com o cumprimento da Lei nº 13.709/2018 - Lei Geral de Proteção de Dados Pessoais (LGPD) e demais normas aplicáveis à proteção da privacidade. Esta Política de Privacidade foi desenvolvida para garantir total transparência sobre como coletamos, utilizamos, armazenamos e protegemos os dados pessoais de nossos colaboradores, parceiros, clientes e demais pessoas que se relacionam conosco.
-Solicitamos a leitura completa deste documento. Dúvidas ou solicitações podem ser direcionadas ao nosso Encarregado de Proteção de Dados através do e-mail: contato@ribasgondim.com.br
 
 2. DEFINIÇÕES FUNDAMENTAIS
 2.1 Dados Pessoais: Informações relacionadas a pessoa natural identificada ou identificável, incluindo nome, documentos de identidade, endereço, telefone, e-mail, dados profissionais, entre outros.

@@ -31,7 +31,7 @@ const TheOffice = () => {
       </div>
 
       <div className="experiencia-rigth">
-        <h2 className="experiencia">13</h2>
+        <h2 className="experiencia">14</h2>
         <p className="experiencia-text">ANOS DE EXPERIÊNCIA</p>
       </div>
     </section>
